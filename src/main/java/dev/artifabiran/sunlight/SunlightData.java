@@ -1,4 +1,4 @@
-package dev.artifabrian.sunlight;
+package dev.artifabiran.sunlight;
 
 import dev.artifabiran.sunlight.Sunlight;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -29,6 +29,7 @@ public class SunlightData {
             e.printStackTrace();
         }
     }
+
 
     public YamlConfiguration getConfig(){
         return config;
