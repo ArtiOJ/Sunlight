@@ -6,7 +6,6 @@ import org.bukkit.scheduler.BukkitScheduler;
 
 public class TimeController {
     private long tickCounter;
-    private static final int DAY_NIGHT_DURATION = 12000;
     private float daytimeMultiplier;
     private float nighttimeMultiplier;
     BukkitScheduler scheduler;
@@ -50,9 +49,6 @@ public class TimeController {
         }
     }
 
-    private double calculateMultiplier(int timeSeconds) {
-        return DAY_NIGHT_DURATION / (timeSeconds * 20);
-    }
     public long getTickCounter() {
         return tickCounter;
     }
