@@ -49,6 +49,14 @@ public class TimeController {
         }
     }
 
+    public void setDaytimeMultiplier(float value) {
+        daytimeMultiplier = value;
+    }
+
+    public void setNighttimeMultiplier(float value) {
+        nighttimeMultiplier = value;
+    }
+
     public long getTickCounter() {
         return tickCounter;
     }
