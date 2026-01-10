@@ -1,5 +1,6 @@
 package dev.artifabiran.sunlight;
 
+import dev.artifabiran.sunlight.commands.SetDaytimeCommand;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -15,6 +16,8 @@ public final class Sunlight extends JavaPlugin {
         sunlightData = new SunlightData(this);
         config = sunlightData.getConfig();
         timeController = new TimeController(this, config.getLong("tickCounter"), config.getInt("daytimeMultiplier"), config.getInt("nighttimeMultiplier"));
+
+        new SetDaytimeCommand(this, timeController, config);
     }
 
     @Override

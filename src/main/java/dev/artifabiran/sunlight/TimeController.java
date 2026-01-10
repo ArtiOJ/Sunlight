@@ -20,7 +20,7 @@ public class TimeController {
         this.scheduler = Bukkit.getScheduler();
         world = Bukkit.getWorld("world");
 
-        scheduler.runTaskTimerAsynchronously(sunlight, this::updateTime, 0L, 1L);
+        scheduler.runTaskTimer(sunlight, this::updateTime, 0L, 1L);
     }
 
     private void updateTime() {
