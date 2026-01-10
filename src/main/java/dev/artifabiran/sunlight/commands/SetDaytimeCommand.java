@@ -1,6 +1,7 @@
 package dev.artifabiran.sunlight.commands;
 
 import dev.artifabiran.sunlight.Sunlight;
+import dev.artifabiran.sunlight.SunlightData;
 import dev.artifabiran.sunlight.TimeController;
 import dev.artifabiran.sunlight.util.Colorize;
 import org.bukkit.command.Command;
@@ -17,11 +18,12 @@ import java.util.List;
 public class SetDaytimeCommand implements CommandExecutor, TabCompleter {
 
     private static final int DAY_NIGHT_DURATION = 12000;
-    private YamlConfiguration config;
+    private SunlightData config;
     private TimeController controller;
 
-    public SetDaytimeCommand(Sunlight plugin, TimeController controller, YamlConfiguration config) {
+    public SetDaytimeCommand(Sunlight plugin, TimeController controller, SunlightData config) {
         this.config = config;
+        this.controller = controller;
         plugin.getCommand("setdaytime").setExecutor(this);
         plugin.getCommand("setdaytime").setExecutor(this);
     }
@@ -30,8 +32,8 @@ public class SetDaytimeCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String @NotNull [] args) {
         int seconds;
 
-        if (args.length < 0) {
-            sender.sendMessage(Colorize.format("&cUsage: /setdaytime <durationSeconds"));
+        if (args.length != 1) {
+            sender.sendMessage(Colorize.format("&cUsage: /setdaytime <durationSeconds>"));
             return false;
         }
 

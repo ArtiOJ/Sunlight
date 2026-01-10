@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Sunlight:jar">
+    <output-path>$PROJECT_DIR$/../../../../Other/Paper Servers/1.21.11 Server/plugins</output-path>
+    <root id="archive" name="Sunlight.jar">
+      <element id="module-output" name="Sunlight" />
+    </root>
+  </artifact>
+</component>

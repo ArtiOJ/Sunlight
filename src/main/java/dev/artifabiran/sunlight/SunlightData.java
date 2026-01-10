@@ -1,6 +1,5 @@
 package dev.artifabiran.sunlight;
 
-import dev.artifabiran.sunlight.Sunlight;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
@@ -28,6 +27,19 @@ public class SunlightData {
         } catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void save() {
+        try {
+            config.save(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void set(String path, Object object) {
+        config.set(path, object);
+        save();
     }
 
 

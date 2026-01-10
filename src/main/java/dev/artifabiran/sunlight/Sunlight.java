@@ -17,11 +17,11 @@ public final class Sunlight extends JavaPlugin {
         config = sunlightData.getConfig();
         timeController = new TimeController(this, config.getLong("tickCounter"), config.getInt("daytimeMultiplier"), config.getInt("nighttimeMultiplier"));
 
-        new SetDaytimeCommand(this, timeController, config);
+        new SetDaytimeCommand(this, timeController, sunlightData);
     }
 
     @Override
     public void onDisable() {
-        config.set("tickCounter", timeController.getTickCounter());
+        sunlightData.set("tickCounter", timeController.getTickCounter());
     }
 }
