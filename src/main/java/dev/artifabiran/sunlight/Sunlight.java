@@ -14,7 +14,7 @@ public final class Sunlight extends JavaPlugin {
         // Plugin startup logic
         sunlightData = new SunlightData(this);
         config = sunlightData.getConfig();
-        timeController = new TimeController(config.getLong("tickCounter"));
+        timeController = new TimeController(this, config.getLong("tickCounter"), config.getInt("daytimeMultiplier"), config.getInt("nighttimeMultiplier"));
     }
 
     @Override
