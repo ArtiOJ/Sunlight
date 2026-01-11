@@ -19,13 +19,11 @@ public class TimeController {
 
         this.scheduler = Bukkit.getScheduler();
         world = Bukkit.getWorld("world");
-
         scheduler.runTaskTimer(sunlight, this::updateTime, 0L, 1L);
     }
 
     private void updateTime() {
         long time = world.getTime();
-
         if (time <= 12000) { // Day
             if (daytimeMultiplier >= 1.0) {
                 world.setTime(time + (long) daytimeMultiplier);

@@ -49,14 +49,14 @@ public class SetNighttimeCommand implements CommandExecutor, TabCompleter {
             return false;
         }
         float multiplier = calculateMultiplier(seconds);
-        config.set("nighttimemultiplier", multiplier);
+        config.set("nighttimeMultiplier", multiplier);
         controller.setNighttimeMultiplier(multiplier);
 
         return false;
     }
 
     private float calculateMultiplier(int timeSeconds) {
-        return DAY_NIGHT_DURATION / (timeSeconds * 20);
+        return DAY_NIGHT_DURATION / (timeSeconds * 20F);
     }
 
     @Override

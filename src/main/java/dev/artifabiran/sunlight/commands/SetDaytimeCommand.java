@@ -56,7 +56,7 @@ public class SetDaytimeCommand implements CommandExecutor, TabCompleter {
     }
 
     private float calculateMultiplier(int timeSeconds) {
-        return DAY_NIGHT_DURATION / (timeSeconds * 20);
+        return DAY_NIGHT_DURATION / (timeSeconds * 20F);
     }
 
     @Override
