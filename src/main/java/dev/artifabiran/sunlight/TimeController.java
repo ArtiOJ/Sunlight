@@ -9,6 +9,7 @@ public class TimeController {
     private float daytimeMultiplier;
     private float nighttimeMultiplier;
     BukkitScheduler scheduler;
+    private float acc;
 
     World world;
 
@@ -16,6 +17,7 @@ public class TimeController {
         this.daytimeMultiplier = daytimeMultiplier;
         this.nighttimeMultiplier = nighttimeMultiplier;
         this.tickCounter = tickCounter;
+        acc = 0.0F;
 
         this.scheduler = Bukkit.getScheduler();
         world = Bukkit.getWorld("world");
@@ -25,26 +27,17 @@ public class TimeController {
     private void updateTime() {
         long time = world.getTime();
         if (time <= 12000) { // Day
-            if (daytimeMultiplier >= 1.0) {
-                world.setTime(time + (long) daytimeMultiplier);
-            } else if (daytimeMultiplier > 0) {
-                if (tickCounter > 1.0 / daytimeMultiplier) {
-                    tickCounter = 0;
-                    world.setTime(time + 1);
-                }
-                tickCounter++;
-            }
+            world.setTime(tick(daytimeMultiplier));
         } else { // night
-            if (nighttimeMultiplier >= 1.0) {
-                world.setTime(time + (long) nighttimeMultiplier);
-            } else if (nighttimeMultiplier > 0) {
-                if (tickCounter > 1.0 / nighttimeMultiplier) {
-                    tickCounter = 0;
-                    world.setTime(time + 1);
-                }
-                tickCounter++;
-            }
+            world.setTime(tick(nighttimeMultiplier));
         }
+    }
+
+    private int tick(float mult) {
+        acc += mult;
+        int out = (int) acc;
+        acc -= out;
+        return out;
     }
 
     public void setDaytimeMultiplier(float value) {
