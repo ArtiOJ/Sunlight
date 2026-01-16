@@ -27,10 +27,11 @@ public class TimeController {
     private void updateTime() {
         long time = world.getTime();
         if (time <= 12000) { // Day
-            world.setTime(tick(daytimeMultiplier));
+            world.setTime(time + tick(daytimeMultiplier));
         } else { // night
-            world.setTime(tick(nighttimeMultiplier));
+            world.setTime(time + tick(nighttimeMultiplier));
         }
+
     }
 
     private int tick(float mult) {
