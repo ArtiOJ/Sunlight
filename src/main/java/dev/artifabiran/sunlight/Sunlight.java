@@ -24,7 +24,7 @@ public final class Sunlight extends JavaPlugin {
             Bukkit.getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
         }
 
-        timeController = new TimeController(this, config.getLong("tickCounter"), config.getInt("daytimeMultiplier"), config.getInt("nighttimeMultiplier"));
+        timeController = new TimeController(this, config.getInt("daytimeMultiplier"), config.getInt("nighttimeMultiplier"));
 
         new SetDaytimeCommand(this, timeController, sunlightData);
         new SetNighttimeCommand(this, timeController, sunlightData);
@@ -32,6 +32,6 @@ public final class Sunlight extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        sunlightData.set("tickCounter", timeController.getTickCounter());
+
     }
 }

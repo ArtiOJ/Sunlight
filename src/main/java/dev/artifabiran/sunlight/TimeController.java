@@ -5,7 +5,6 @@ import org.bukkit.World;
 import org.bukkit.scheduler.BukkitScheduler;
 
 public class TimeController {
-    private long tickCounter;
     private float daytimeMultiplier;
     private float nighttimeMultiplier;
     BukkitScheduler scheduler;
@@ -13,10 +12,9 @@ public class TimeController {
 
     World world;
 
-    public TimeController(Sunlight sunlight, long tickCounter, int daytimeMultiplier, int nighttimeMultiplier) {
+    public TimeController(Sunlight sunlight, int daytimeMultiplier, int nighttimeMultiplier) {
         this.daytimeMultiplier = daytimeMultiplier;
         this.nighttimeMultiplier = nighttimeMultiplier;
-        this.tickCounter = tickCounter;
         acc = 0.0F;
 
         this.scheduler = Bukkit.getScheduler();
@@ -47,15 +45,6 @@ public class TimeController {
 
     public void setNighttimeMultiplier(float value) {
         nighttimeMultiplier = value;
-    }
-
-    public long getTickCounter() {
-        return tickCounter;
-    }
-
-
-    public void setTickCounter(long tickCounter) {
-        this.tickCounter = tickCounter;
     }
 }
 
