@@ -20,7 +20,7 @@ public final class Sunlight extends JavaPlugin {
         sunlightData = new SunlightData(this);
         config = sunlightData.getConfig();
         if (Boolean.TRUE.equals(Bukkit.getWorld("world").getGameRuleValue(GameRule.DO_DAYLIGHT_CYCLE))) {
-            Bukkit.getLogger().warning(Colorize.format("[Sunlight] &cGamerule doDaylightCycle has been automatically disabled to allow Sunlight plugin to handle day/night cycle."));
+            Bukkit.getLogger().warning("[Sunlight] Gamerule doDaylightCycle has been automatically disabled to allow Sunlight plugin to handle day/night cycle.");
             Bukkit.getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
         }
 
