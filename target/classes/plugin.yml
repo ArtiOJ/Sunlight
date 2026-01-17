@@ -1,9 +1,0 @@
-name: Sunlight
-version: '1.0-SNAPSHOT'
-main: dev.artifabiran.sunlight.Sunlight
-api-version: '1.21'
-commands:
-  setdaytime:
-    permission: sunlight.*
-  setnighttime:
-    permission: sunlight.*
